@@ -46,7 +46,16 @@ const isFilled = (value) => {
 /* ================= AUTH ================= */
 app.post("/api/signup", async (req, res) => {
   try {
+    console.log("Signup request body:", req.body);
+
     const { name, email, password } = req.body;
+
+    // default role if not provided
+    const role = req.body.role || "student";
+
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
 
     const exists = await User.findOne({ email });
     if (exists) {
@@ -65,8 +74,10 @@ app.post("/api/signup", async (req, res) => {
       role: newUser.role,
       email: newUser.email,
     });
+
   } catch (err) {
-    res.status(500).json({ message: "Signup failed" });
+    console.error("Signup error:", err);
+    res.status(500).json({ message: err.message });
   }
 });
 
