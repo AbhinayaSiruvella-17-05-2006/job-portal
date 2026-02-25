@@ -14,7 +14,11 @@ const Message = require("./models/Message");
 const app = express();
 
 /* ================= MIDDLEWARE ================= */
-app.use(cors());
+app.use(cors({
+  origin: "https://job-portal-2-ojhx.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
