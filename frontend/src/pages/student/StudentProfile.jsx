@@ -13,13 +13,13 @@ function StudentProfile() {
 
   useEffect(() => {
     // Fetch user details from MongoDB using the email from URL
-    axios.get(`https://job-portal-backend.onrender.com/api/student/profile/${email}`)
+    axios.get(`https://job-portal-xwkz.onrender.com/api/student/profile/${email}`)
       .then(res => setProfile(res.data))
       .catch(err => console.error("Failed to fetch profile", err));
   }, [email]);
 
   const handleUpdate = () => {
-    axios.put(`https://job-portal-backend.onrender.com/api/student/profile/update`, { 
+    axios.put(`https://job-portal-xwkz.onrender.com/api/student/profile/update`, { 
         email: email, 
         name: profile.name, 
         password: profile.password 
@@ -33,7 +33,7 @@ function StudentProfile() {
 
   const handleDeleteAccount = () => {
     if (window.confirm("WARNING: This will delete your account permanently. Continue?")) {
-      axios.delete(`https://job-portal-backend.onrender.com/api/student/account/${email}`)
+      axios.delete(`https://job-portal-xwkz.onrender.com/api/student/account/${email}`)
         .then(() => {
           alert("Account Deleted.");
           navigate("/"); // Go back to Login

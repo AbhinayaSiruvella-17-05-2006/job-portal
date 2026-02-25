@@ -90,7 +90,7 @@ function PostJob() {
       fd.append("eligibility", JSON.stringify(eligibilityData));
       fd.append("questions", JSON.stringify(questions));
 
-      await axios.post("https://job-portal-backend.onrender.com/api/recruiter/post-job", fd);
+      await axios.post("https://job-portal-xwkz.onrender.com/api/recruiter/post-job", fd);
 
       alert("✅ Job Posted Successfully");
       // Optional: Reset form or navigate

@@ -27,7 +27,7 @@ function RecruiterMessages() {
 
   try {
     const res = await axios.get(
-      `https://job-portal-backend.onrender.com/api/messages/${user.email}`
+      `https://job-portal-xwkz.onrender.com/api/messages/${user.email}`
     );
     console.log("MESSAGES RESPONSE:", res.data);
     setMessages(res.data);
@@ -43,7 +43,7 @@ function RecruiterMessages() {
     }
 
     try {
-      await axios.post("https://job-portal-backend.onrender.com/api/messages/send", {
+      await axios.post("https://job-portal-xwkz.onrender.com/api/messages/send", {
   senderEmail: user.email,
   receiverEmail,
   message: text,   // also fix this

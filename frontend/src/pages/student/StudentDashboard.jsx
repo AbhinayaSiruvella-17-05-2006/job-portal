@@ -14,20 +14,20 @@ function StudentDashboard() {
   useEffect(() => {
     if (email) {
       // 1. Fetch User Data (for Profile Pic)
-      axios.get(`https://job-portal-backend.onrender.com/api/student/profile/${email}`)
+      axios.get(`https://job-portal-xwkz.onrender.com/api/student/profile/${email}`)
         .then(res => setProfilePic(res.data.profilePic))
         .catch(err => console.log("Profile pic error"));
 
       // 2. Fetch Available Jobs
-      axios.get(`https://job-portal-backend.onrender.com/api/jobs/available/${email}`)
+      axios.get(`https://job-portal-xwkz.onrender.com/api/jobs/available/${email}`)
         .then((res) => setRecommendedJobs(res.data.slice(0, 3)))
         .catch(() => setRecommendedJobs([]));
 
       // 3. Fetch Job Stats
-      axios.get(`https://job-portal-backend.onrender.com/api/jobs`)
+      axios.get(`https://job-portal-xwkz.onrender.com/api/jobs`)
         .then((res) => setTotalJobsCount(res.data.length));
 
-      axios.get(`https://job-portal-backend.onrender.com/api/applications/${email}`)
+      axios.get(`https://job-portal-xwkz.onrender.com/api/applications/${email}`)
         .then((res) => {
           const apps = res.data;
           setStats({
@@ -45,7 +45,7 @@ function StudentDashboard() {
     formData.append("profilePic", file);
     formData.append("email", email);
 
-    axios.post("https://job-portal-backend.onrender.com/api/student/upload-pic", formData)
+    axios.post("https://job-portal-xwkz.onrender.com/api/student/upload-pic", formData)
       .then(res => {
         setProfilePic(res.data.profilePic);
         alert("Profile picture updated!");
@@ -61,7 +61,7 @@ function StudentDashboard() {
           {/* IMAGE UPLOAD CLICKABLE AREA */}
           <div style={styles.profileCircle} onClick={() => document.getElementById("picInput").click()}>
             {profilePic ? (
-              <img src={`https://job-portal-backend.onrender.com/${profilePic}`} alt="Profile" style={styles.imageStyle} />
+              <img src={`https://job-portal-xwkz.onrender.com/${profilePic}`} alt="Profile" style={styles.imageStyle} />
             ) : "👤"}
             <input type="file" id="picInput" hidden onChange={handleImageUpload} />
           </div>

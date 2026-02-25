@@ -13,7 +13,7 @@ function JobDetails() {
 
   useEffect(() => {
     axios
-      .get(`https://job-portal-backend.onrender.com/api/jobs/${id}`)
+      .get(`https://job-portal-xwkz.onrender.com/api/jobs/${id}`)
       .then((res) => setJob(res.data))
       .catch(() => alert("Failed to load job"));
   }, [id]);
@@ -21,7 +21,7 @@ function JobDetails() {
   useEffect(() => {
     if (user?.email && id) {
       axios
-        .get(`https://job-portal-backend.onrender.com/api/check-application/${id}/${user.email}`)
+        .get(`https://job-portal-xwkz.onrender.com/api/check-application/${id}/${user.email}`)
         .then((res) => {
           if (res.data.applied) {
             setHasApplied(true);

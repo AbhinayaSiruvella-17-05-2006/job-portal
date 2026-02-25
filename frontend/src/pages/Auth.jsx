@@ -27,8 +27,8 @@ function Auth() {
   const submit = async (mode) => {
     try {
       const url = mode
-        ? "https://job-portal-backend.onrender.com/api/login"
-        : "https://job-portal-backend.onrender.com/api/signup";
+        ? "https://job-portal-xwkz.onrender.com/api/login"
+        : "https://job-portal-xwkz.onrender.com/api/signup";
 
       let payload;
       if (mode) {

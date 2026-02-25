@@ -15,7 +15,7 @@ function MyApplications() {
     const fetchApplications = async () => {
       try {
         const res = await axios.get(
-          `https://job-portal-backend.onrender.com/api/applications/${email}`
+          `https://job-portal-xwkz.onrender.com/api/applications/${email}`
         );
         setApps(res.data);
       } catch (err) {
@@ -30,7 +30,7 @@ function MyApplications() {
 
   const acceptOffer = async (id) => {
     try {
-      await axios.post(`https://job-portal-backend.onrender.com/api/student/respond/${id}`, {
+      await axios.post(`https://job-portal-xwkz.onrender.com/api/student/respond/${id}`, {
         decision: "accept",
       });
       alert("Offer accepted successfully");
@@ -42,7 +42,7 @@ function MyApplications() {
 
   const rejectOffer = async (id) => {
     try {
-      await axios.post(`https://job-portal-backend.onrender.com/api/student/respond/${id}`, {
+      await axios.post(`https://job-portal-xwkz.onrender.com/api/student/respond/${id}`, {
         decision: "reject",
       });
       alert("Offer rejected");
@@ -119,7 +119,7 @@ function MyApplications() {
                     >View Letter</button>
                   )}
                   {app.offerPdf && (
-                    <a href={`https://job-portal-backend.onrender.com/${app.offerPdf}`} target="_blank" rel="noopener noreferrer">
+                    <a href={`https://job-portal-xwkz.onrender.com/${app.offerPdf}`} target="_blank" rel="noopener noreferrer">
                       <button style={styles.blueBtn}>Download PDF</button>
                     </a>
                   )}

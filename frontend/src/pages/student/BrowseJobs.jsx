@@ -12,7 +12,7 @@ function BrowseJobs() {
     // Your exact backend logic preserved
     if (user?.email) {
       axios
-        .get(`https://job-portal-backend.onrender.com/api/jobs/available/${user.email}`)
+        .get(`https://job-portal-xwkz.onrender.com/api/jobs/available/${user.email}`)
         .then((res) => setJobs(res.data))
         .catch((err) => console.error(err));
     }
