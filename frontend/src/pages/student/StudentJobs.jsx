@@ -9,7 +9,7 @@ function StudentJobs() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/jobs/available/${email}`)
+    axios.get(`https://job-portal-backend.onrender.com/api/jobs/available/${email}`)
       .then(res => setJobs(res.data))
       .catch(() => setJobs([]));
   }, [email]);

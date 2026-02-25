@@ -13,7 +13,7 @@ function StudentNotifications() {
   }, [email]);
 
   const fetchNotifications = () => {
-    axios.get(`http://localhost:5000/api/notifications/${email}`)
+    axios.get(`https://job-portal-backend.onrender.com/api/notifications/${email}`)
       .then(res => {
         setNotifications(res.data);
         setLoading(false);
@@ -22,7 +22,7 @@ function StudentNotifications() {
   };
 
   const markAsRead = (id) => {
-    axios.put(`http://localhost:5000/api/notifications/read/${id}`)
+    axios.put(`https://job-portal-backend.onrender.com/api/notifications/read/${id}`)
       .then(() => fetchNotifications());
   };
 

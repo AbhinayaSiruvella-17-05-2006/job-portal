@@ -12,9 +12,9 @@ function StudentMessages() {
   const [loading, setLoading] = useState(false);
 
   const fetchMessages = () => {
-    // URL must include http://localhost:5000 to reach your backend
+    // URL must include http://:5000 to reach your backend
     axios
-      .get(`http://localhost:5000/api/messages/${email}`)
+      .get(`https://job-portal-backend.onrender.com/api/messages/${email}`)
       .then((res) => setMessages(res.data))
       .catch((err) => console.error("Fetch error:", err));
   };
@@ -36,7 +36,7 @@ function StudentMessages() {
         message: newMessage, // Matches 'message' in your schema
       };
 
-      await axios.post("http://localhost:5000/api/messages/send", payload);
+      await axios.post("https://job-portal-backend.onrender.com/api/messages/send", payload);
       setNewMessage(""); 
       fetchMessages(); 
     } catch (err) {

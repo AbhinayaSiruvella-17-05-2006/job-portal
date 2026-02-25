@@ -10,7 +10,7 @@ function MyJobs() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/recruiter/my-jobs/${user.email}`)
+      .get(`https://job-portal-backend.onrender.com/api/recruiter/my-jobs/${user.email}`)
       .then((res) => setJobs(res.data))
       .catch(() => alert("Failed to load jobs"));
   }, [user.email]);

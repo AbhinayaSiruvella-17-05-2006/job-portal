@@ -17,7 +17,7 @@ function JobApplications() {
   /* ================= FETCH APPLICATIONS ================= */
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/recruiter/applications/${jobId}`)
+      .get(`https://job-portal-backend.onrender.com/api/recruiter/applications/${jobId}`)
       .then((res) => setApps(res.data))
       .catch(() => alert("Failed to load applications"));
   }, [jobId]);
@@ -48,11 +48,11 @@ function JobApplications() {
         formData.append("message", message);
         if (selectedFile) formData.append("offerPdf", selectedFile);
 
-        await axios.post(`http://localhost:5000${endpoint}`, formData, {
+        await axios.post(`https://job-portal-backend.onrender.com${endpoint}`, formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       } else {
-        await axios.post(`http://localhost:5000${endpoint}`, { message });
+        await axios.post(`https://job-portal-backend.onrender.com${endpoint}`, { message });
       }
 
       alert(actionType === "accept" ? "Offer letter sent!" : "Rejection sent!");
@@ -104,7 +104,7 @@ function JobApplications() {
 
               <div style={styles.actionRow}>
                 <button 
-                  onClick={() => window.open(`http://localhost:5000/api/recruiter/application/${app._id}/pdf`)}
+                  onClick={() => window.open(`https://job-portal-backend.onrender.com/api/recruiter/application/${app._id}/pdf`)}
                   style={styles.detailsBtn}
                 >
                   View Application

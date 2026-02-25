@@ -22,7 +22,7 @@ function RecruiterProfile() {
 
   const handleUpdate = async () => {
     try {
-      const res = await axios.put(`http://localhost:5000/api/recruiter/update/${user.email}`, formData);
+      const res = await axios.put(`https://job-portal-backend.onrender.com/api/recruiter/update/${user.email}`, formData);
       // Update local storage and context so the UI reflects the new name
       localStorage.setItem("user", JSON.stringify(res.data));
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
@@ -37,7 +37,7 @@ function RecruiterProfile() {
   const handleDelete = async () => {
     if (window.confirm("WARNING: This will permanently delete your account and all posted jobs. Continue?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/recruiter/delete/${user.email}`);
+        await axios.delete(`https://job-portal-backend.onrender.com/api/recruiter/delete/${user.email}`);
         handleLogout();
       } catch (err) {
         alert("❌ Error deleting account.");

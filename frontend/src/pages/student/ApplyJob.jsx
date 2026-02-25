@@ -63,7 +63,7 @@ function ApplyJob() {
   /* ================= FETCH JOB ================= */
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/jobs/${id}`)
+      .get(`https://job-portal-backend.onrender.com/api/jobs/${id}`)
       .then((res) => setJob(res.data))
       .catch((err) => {
         console.error("❌ Failed to load job:", err);
@@ -119,7 +119,7 @@ function ApplyJob() {
         })
       );
 
-      await axios.post("http://localhost:5000/api/apply", fd);
+      await axios.post("https://job-portal-backend.onrender.com/api/apply", fd);
       alert("✅ Application submitted successfully");
       navigate("/student/jobs");
     } catch (err) {
