@@ -46,7 +46,7 @@ const isFilled = (value) => {
 /* ================= AUTH ================= */
 app.post("/api/signup", async (req, res) => {
   try {
-    const { name, email, password, role } = req.body;
+    const { name, email, password } = req.body;
 
     const exists = await User.findOne({ email });
     if (exists) {
